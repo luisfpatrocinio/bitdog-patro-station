@@ -13,6 +13,9 @@ var peers: Array[PacketPeerUDP] = [];
 @onready var clientIPLabel: Label = infoPanel.container.get_node("ClientIPLabel");
 @onready var statusLabel: Label = infoPanel.container.get_node("StatusLabel");
 
+@onready var huembleRobot: CharacterBody2D = find_child("HuembleRobot");
+@onready var spaceShip: CharacterBody2D = find_child("SpaceShip");
+
 func clearPeers() -> void:
 	peers.clear();
 
@@ -23,11 +26,19 @@ func _ready() -> void:
 	server.listen(PORT)
 
 func managePacket(packet: String):
-	return;
 	var _pack = packet;
-	print("Printando pacote: ")
-	print(_pack);
-	print("---")
+	
+	var _firstChar = packet[0];
+	match _firstChar:
+		"A":
+			print("packet original: " + str(packet));
+			var _vector = packet.split_floats("|", false).slice(1);
+			print(_vector);
+			spaceShip.velX = _vector[0];
+			spaceShip.velY = _vector[1];
+			pass
+			
+
 	
 func update_peers_and_packets() -> void:
 	clientIPLabel.text = "";
@@ -38,8 +49,15 @@ func update_peers_and_packets() -> void:
 		if _packet:
 			managePacket(_packet.get_string_from_utf8());
 
+func updateStatusLabel():
+	if len(peers) <= 0:
+		var _statusLabel = infoPanel.container.get_node("StatusLabel") as Label;
+		_statusLabel.text = "Waiting for BitDog..."
+
 func _process(delta: float) -> void:
 	server.poll();
+
+	updateStatusLabel();
 
 	# Receber novos clientes:
 	if server.is_connection_available():

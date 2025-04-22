@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkkc2ooun2c5"]
+[gd_scene load_steps=16 format=3 uid="uid://bkkc2ooun2c5"]
 
 [ext_resource type="Script" uid="uid://bpwlco3llm63m" path="res://MainScreen.gd" id="1_7pmop"]
 [ext_resource type="Theme" uid="uid://dt7k2spik24qg" path="res://Theme/PatroPanelTheme.tres" id="2_b26h7"]
@@ -6,7 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cfc41dq2bqcp6" path="res://icon.svg" id="4_6maps"]
 [ext_resource type="Script" uid="uid://bsjiookk7pntb" path="res://Player.gd" id="5_aycgk"]
 [ext_resource type="PackedScene" uid="uid://brdf6p4bmygxf" path="res://Scenes/led_button.tscn" id="6_b26h7"]
+[ext_resource type="PackedScene" uid="uid://dd3dhafcjhxc3" path="res://Scenes/space_ship.tscn" id="6_lple0"]
 [ext_resource type="Script" uid="uid://djpy1dbqjulfw" path="res://Scripts/reset_button.gd" id="7_a8wb5"]
+[ext_resource type="PackedScene" uid="uid://bp46rpad118d6" path="res://Scenes/led_matrix_button.tscn" id="8_6maps"]
+[ext_resource type="PackedScene" uid="uid://u42difiw2rc8" path="res://Scenes/led_slider.tscn" id="9_aycgk"]
+[ext_resource type="PackedScene" uid="uid://8ky1q2wrg0nn" path="res://Scenes/HuembleRobot.tscn" id="10_kyyy7"]
 
 [sub_resource type="Gradient" id="Gradient_cfvxu"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0.411765, 1, 1)
@@ -99,16 +103,20 @@ vertical_alignment = 1
 [node name="AnalogPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(256, 256)
 offset_left = 55.0
-offset_top = 187.0
+offset_top = 188.0
 offset_right = 311.0
-offset_bottom = 443.0
+offset_bottom = 444.0
 theme = ExtResource("2_b26h7")
 script = ExtResource("3_a8wb5")
 
 [node name="Icon" type="Sprite2D" parent="AnalogPanel"]
+visible = false
 position = Vector2(124, 127)
 texture = ExtResource("4_6maps")
 script = ExtResource("5_aycgk")
+
+[node name="SpaceShip" parent="AnalogPanel" instance=ExtResource("6_lple0")]
+position = Vector2(127, 127)
 
 [node name="TextPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(256, 256)
@@ -215,5 +223,160 @@ grow_vertical = 0
 text = "RESET"
 script = ExtResource("7_a8wb5")
 metadata/_edit_use_anchors_ = true
+
+[node name="LedsMatrixPanel" type="Panel" parent="."]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(256, 256)
+offset_left = 330.0
+offset_top = 188.0
+offset_right = 586.0
+offset_bottom = 444.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_b26h7")
+
+[node name="GridContainer" type="GridContainer" parent="LedsMatrixPanel"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -120.0
+offset_right = 130.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="LedMatrixButton" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton2" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton3" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton4" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton5" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton6" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton7" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton8" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton9" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton10" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton11" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton12" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton13" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton14" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton15" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton16" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton17" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton18" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton19" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton20" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton21" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton22" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton23" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton24" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedMatrixButton25" parent="LedsMatrixPanel/GridContainer" instance=ExtResource("8_6maps")]
+layout_mode = 2
+
+[node name="LedsBrightnessPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(120, 256)
+offset_left = 318.0
+offset_top = 266.0
+offset_right = 438.0
+offset_bottom = 522.0
+size_flags_vertical = 4
+theme = ExtResource("2_b26h7")
+script = ExtResource("3_a8wb5")
+
+[node name="Container" type="VBoxContainer" parent="LedsBrightnessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -112.0
+offset_right = 40.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="HBoxContainer" parent="LedsBrightnessPanel/Container"]
+layout_mode = 2
+
+[node name="LedSliderRed" parent="LedsBrightnessPanel/Container/Container" node_paths=PackedStringArray("colorRect") instance=ExtResource("9_aycgk")]
+layout_mode = 2
+colorRect = NodePath("../../ColorRect")
+
+[node name="LedSliderGreen" parent="LedsBrightnessPanel/Container/Container" node_paths=PackedStringArray("colorRect") instance=ExtResource("9_aycgk")]
+layout_mode = 2
+colorRect = NodePath("../../ColorRect")
+color = 1
+
+[node name="LedSliderBlue" parent="LedsBrightnessPanel/Container/Container" node_paths=PackedStringArray("colorRect") instance=ExtResource("9_aycgk")]
+layout_mode = 2
+colorRect = NodePath("../../ColorRect")
+color = 2
+
+[node name="ColorRect" type="ColorRect" parent="LedsBrightnessPanel/Container"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HuembleWorld" type="Node2D" parent="."]
+position = Vector2(748, 84)
+
+[node name="HuembleRobot" parent="HuembleWorld" instance=ExtResource("10_kyyy7")]
 
 [connection signal="pressed" from="TextPanel/Container/Button" to="." method="_on_button_pressed"]

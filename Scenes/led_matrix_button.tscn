@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp46rpad118d6"]
+
+[ext_resource type="Script" uid="uid://sbhdhfs1d7s8" path="res://Scripts/led_matrix_button.gd" id="1_a44xb"]
+
+[node name="LedMatrixButton" type="Button"]
+custom_minimum_size = Vector2(45, 45)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -22.5
+offset_right = 22.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_a44xb")
