@@ -1,7 +1,5 @@
 extends VSlider
 
-@onready var mainScreen = get_tree().get_first_node_in_group("MainScreen") as MainScreen;
-
 @export var colorRect: ColorRect;
 @export_enum("RED:0", "GREEN:1", "BLUE:2") var color;
 
@@ -23,4 +21,4 @@ func setLedValue(val):
 			colorRect.color.b = val / 255.0;
 		
 	var _command = "set_led_" + _ledId + "_brightness " + str(int(val));
-	mainScreen.send_data(_command);
+	ConnectionManager.send_data(_command);

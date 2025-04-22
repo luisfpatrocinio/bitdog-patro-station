@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var mainScreen = get_tree().get_first_node_in_group("MainScreen") as MainScreen;
 var velX: float;
 var velY: float;
 

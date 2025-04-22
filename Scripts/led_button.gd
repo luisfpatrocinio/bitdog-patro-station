@@ -1,6 +1,5 @@
 extends Button
 @export_enum("RED:0", "GREEN:1", "BLUE:2") var color;
-@onready var mainScreen = get_tree().get_first_node_in_group("MainScreen") as MainScreen;
 
 var lightOn: bool = false;
 
@@ -18,7 +17,7 @@ func switchLed() -> void:
 	var _command = "turn_led_" + _colorStr + " ";
 	_command += "on" if lightOn else "off";
 	refreshButtonColor();
-	mainScreen.send_data(_command);
+	ConnectionManager.send_data(_command);
 	
 
 func refreshButtonColor():

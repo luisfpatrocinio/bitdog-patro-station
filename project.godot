@@ -15,6 +15,10 @@ run/main_scene="res://MainScreen.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ConnectionManager="*res://ConnectionManager/ConnectionManager.tscn"
+
 [display]
 
 window/size/viewport_width=960
