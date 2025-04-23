@@ -15,6 +15,10 @@ class_name MainScreen
 func setStatus(_statusStr: String):
 	infoPanel.container.get_node("StatusLabel").text = "Status: " + _statusStr;
 
+func _process(delta: float) -> void:
+	$DebugLabel.text = "Dict: \n";
+	$DebugLabel.text += str(ConnectionManager.inputDict);
+
 func updateStatusLabel():
 	if len(ConnectionManager.peers) <= 0:
 		var _statusLabel = infoPanel.container.get_node("StatusLabel") as Label;
