@@ -12,6 +12,15 @@ class_name MainScreen
 @onready var huembleRobot: CharacterBody2D = find_child("HuembleRobot");
 @onready var spaceShip: CharacterBody2D = find_child("SpaceShip");
 
+func _ready() -> void:
+	ConnectionManager.connect("playerConnected", _onPlayerConnected);
+	
+func _onPlayerConnected(playerId: String):
+	statusLabel.text = "Status: Connected"
+	clientIPLabel.text = playerId;
+	pass
+
+
 func setStatus(_statusStr: String):
 	infoPanel.container.get_node("StatusLabel").text = "Status: " + _statusStr;
 

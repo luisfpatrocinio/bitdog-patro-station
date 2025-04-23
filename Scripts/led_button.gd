@@ -1,5 +1,6 @@
 extends Button
 @export_enum("RED:0", "GREEN:1", "BLUE:2") var color;
+@export var ledSlider: VSlider;
 
 var lightOn: bool = false;
 
@@ -12,8 +13,11 @@ func switchLed() -> void:
 	var _colorStr = "";
 	match color:
 		0: _colorStr = "red";
-		1: _colorStr = "green"
-		2: _colorStr = "blue"
+		1: _colorStr = "green";
+		2: _colorStr = "blue";
+		
+	ledSlider.value = ledSlider.max_value if lightOn else ledSlider.min_value;
+		
 	var _command = "turn_led_" + _colorStr + " ";
 	_command += "on" if lightOn else "off";
 	refreshButtonColor();

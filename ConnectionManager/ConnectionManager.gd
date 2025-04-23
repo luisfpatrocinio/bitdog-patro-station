@@ -17,7 +17,7 @@ var inputDict: Dictionary = {
 	"buttonB": false,
 }
 
-signal playerConnected;
+signal playerConnected(playerId: String);
 signal buttonAPressed;
 signal buttonBPressed;
 
@@ -25,7 +25,7 @@ signal buttonBPressed;
 ## Pacotes que começam com "A" contêm dados do analógico.
 ## Pacotes que começam com "B" indicam um botão pressionado.
 func managePacket(packet: String):
-	#print("Packet: " + str(packet));
+	print("Packet: " + str(packet));
 	var _firstChar = packet[0];
 	match _firstChar:
 		"A":
@@ -94,7 +94,7 @@ func _process(delta: float) -> void:
 		# Armazena o peer para comunicação futura
 		peers.append(peer)
 		
-		emit_signal("playerConnected");
+		emit_signal("playerConnected", peer.get_packet_ip());
 	else:
 		# Atualiza os pacotes recebidos dos peers existentes
 		update_peers_and_packets()

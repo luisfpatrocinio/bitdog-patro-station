@@ -388,10 +388,10 @@ position = Vector2(748, 84)
 [node name="HuembleRobot" parent="HuembleWorld" instance=ExtResource("10_kyyy7")]
 
 [node name="DebugLabel" type="Label" parent="."]
-offset_left = 590.0
+offset_left = 673.0
 offset_top = 21.0
-offset_right = 910.0
-offset_bottom = 86.0
+offset_right = 929.0
+offset_bottom = 142.0
 theme = ExtResource("2_b26h7")
 text = "DEBUG AXIS: "
 autowrap_mode = 2
