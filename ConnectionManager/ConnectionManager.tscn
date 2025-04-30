@@ -4,3 +4,8 @@
 
 [node name="ConnectionManager" type="Node"]
 script = ExtResource("1_w6xo0")
+
+[node name="SendBroadcastTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SendBroadcastTimer" to="." method="sendBroadcast"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbvlppfjk0kjc"]
+
+[ext_resource type="Script" uid="uid://cry0x3ottpw8g" path="res://Scripts/TeleportButton.gd" id="1_yc3nt"]
+[ext_resource type="PackedScene" uid="uid://8ky1q2wrg0nn" path="res://Scenes/HuembleRobot.tscn" id="2_0y2s4"]
+
+[node name="GoToPianoButton" type="Button"]
+anchors_preset = -1
+anchor_left = 0.046875
+anchor_top = 1.27083
+anchor_right = 0.046875
+anchor_bottom = 1.27083
+offset_left = 759.0
+offset_top = -204.25
+offset_right = 823.0
+offset_bottom = -156.25
+grow_horizontal = 0
+grow_vertical = 0
+text = "PIANO"
+script = ExtResource("1_yc3nt")
+sceneToTeleport = ExtResource("2_0y2s4")
+metadata/_edit_use_anchors_ = true

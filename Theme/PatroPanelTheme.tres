@@ -1,5 +1,7 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://dt7k2spik24qg"]
 
+[ext_resource type="FontFile" uid="uid://bl7fvreqbi3hl" path="res://Assets/SometypeMono-VariableFont_wght.ttf" id="1_4ud2i"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
 bg_color = Color(0, 0.411765, 1, 1)
 border_width_left = 4
@@ -11,11 +13,13 @@ corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
-
-[sub_resource type="FontVariation" id="FontVariation_bnww5"]
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
 
 [resource]
-default_font = SubResource("FontVariation_bnww5")
+default_font = ExtResource("1_4ud2i")
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null

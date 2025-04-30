@@ -1,5 +1,8 @@
 extends Node
 
+# Godotinho TODO: excluir
+var godotinho: Sprite2D;
+
 ## Porta UDP na qual o servidor irá escutar conexões.
 const PORT = 5000;
 
@@ -17,6 +20,12 @@ var inputDict: Dictionary = {
 	"buttonB": false,
 }
 
+# Cria client para envio de pacotes UDP
+var client: PacketPeerUDP = PacketPeerUDP.new();
+
+# Flag de estado de conexão
+var connectionEstablished: bool = false;
+
 signal playerConnected(playerId: String);
 signal buttonAPressed;
 signal buttonBPressed;
@@ -25,7 +34,11 @@ signal buttonBPressed;
 ## Pacotes que começam com "A" contêm dados do analógico.
 ## Pacotes que começam com "B" indicam um botão pressionado.
 func managePacket(packet: String):
-	print("Packet: " + str(packet));
+	# Checar se a mensagem é um ack
+	if packet == "udp_handshake_ack":
+		print("CONEXÃO ESTABELECIDA!");
+		connectionEstablished = true;
+	
 	var _firstChar = packet[0];
 	match _firstChar:
 		"A":
@@ -47,6 +60,7 @@ func managePacket(packet: String):
 ## Inicia o servidor para escutar conexões na porta especificada.
 func _ready() -> void:
 	server.listen(PORT)
+	
 
 ## Limpa a lista de peers conectados.
 func clearPeers() -> void:
@@ -77,6 +91,8 @@ func send_data(message: String):
 func _process(delta: float) -> void:
 	server.poll();
 	resetButtons();
+	
+	manageGodotinho();
 
 	# Verifica se há uma nova conexão de cliente
 	if server.is_connection_available():
@@ -98,3 +114,23 @@ func _process(delta: float) -> void:
 	else:
 		# Atualiza os pacotes recebidos dos peers existentes
 		update_peers_and_packets()
+		
+
+func manageGodotinho():
+	if !godotinho: return;
+	
+	godotinho.scale = godotinho.scale.lerp(Vector2(0.80, 0.80), 0.15);
+	if connectionEstablished:
+		godotinho.modulate = Color.GREEN;
+	else: 
+		godotinho.modulate = Color.RED;
+
+func sendBroadcast():
+	if !connectionEstablished:
+		if godotinho: godotinho.scale = Vector2(1.2, 1.2);
+		client.set_broadcast_enabled(true);
+		var _ipString = "192.168.137.255";
+		client.set_dest_address(_ipString, 1234);
+		client.put_packet("udp_handshake".to_utf8_buffer());
+		print("Enviando broadcast para %s ..." % [_ipString]);
+		return;
