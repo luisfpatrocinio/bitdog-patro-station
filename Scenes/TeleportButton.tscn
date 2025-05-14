@@ -1,7 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbvlppfjk0kjc"]
+[gd_scene load_steps=21 format=3 uid="uid://bbvlppfjk0kjc"]
 
 [ext_resource type="Script" uid="uid://cry0x3ottpw8g" path="res://Scripts/TeleportButton.gd" id="1_yc3nt"]
-[ext_resource type="PackedScene" uid="uid://8ky1q2wrg0nn" path="res://Scenes/HuembleRobot.tscn" id="2_0y2s4"]
+[ext_resource type="Script" uid="uid://l3f2nhsgntfe" path="res://Scripts/HuembleRobot.gd" id="2_yc3nt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0y2s4"]
+load_path = "res://.godot/imported/char_02_idle_164x164.png-574f6dd858a24160a9e0cc5a341f7340.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h41j6"]
+atlas = SubResource("CompressedTexture2D_0y2s4")
+region = Rect2(0, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i3qs"]
+atlas = SubResource("CompressedTexture2D_0y2s4")
+region = Rect2(164, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpx7e"]
+atlas = SubResource("CompressedTexture2D_0y2s4")
+region = Rect2(328, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kyg"]
+atlas = SubResource("CompressedTexture2D_0y2s4")
+region = Rect2(0, 164, 164, 164)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xkjgs"]
+load_path = "res://.godot/imported/char_02_run_164x164.png-83ef97c8c7f3473a8b365316affadeed.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10rqq"]
+atlas = SubResource("CompressedTexture2D_xkjgs")
+region = Rect2(0, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xll1k"]
+atlas = SubResource("CompressedTexture2D_xkjgs")
+region = Rect2(164, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ig8o"]
+atlas = SubResource("CompressedTexture2D_xkjgs")
+region = Rect2(328, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4e1f"]
+atlas = SubResource("CompressedTexture2D_xkjgs")
+region = Rect2(0, 164, 164, 164)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0hms2"]
+load_path = "res://.godot/imported/char_02_walk_164x164.png-86db659b5422c7c0ce9cc6b1a488b0ac.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3obc7"]
+atlas = SubResource("CompressedTexture2D_0hms2")
+region = Rect2(0, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kexc"]
+atlas = SubResource("CompressedTexture2D_0hms2")
+region = Rect2(164, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r402d"]
+atlas = SubResource("CompressedTexture2D_0hms2")
+region = Rect2(328, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av1tn"]
+atlas = SubResource("CompressedTexture2D_0hms2")
+region = Rect2(0, 164, 164, 164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3fayv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h41j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i3qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpx7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kyg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10rqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xll1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ig8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4e1f")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3obc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kexc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r402d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av1tn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khrlv"]
+size = Vector2(24, 32)
+
+[sub_resource type="PackedScene" id="PackedScene_ylie6"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("HuembleRobot", "CharacterBody2D", "script", "Sprite", "AnimatedSprite2D", "texture_filter", "sprite_frames", "animation", "frame_progress", "CollisionShape2D", "CollisionShape2D", "position", "shape"),
+"node_count": 3,
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 4, 5, 1, 6, 2, 7, 3, 8, 4, 0, 1073741825, 0, 10, 9, -1, 2, 11, 5, 12, 6, 0),
+"variants": [ExtResource("2_yc3nt"), 1, SubResource("SpriteFrames_3fayv"), &"idle", 0.925548, Vector2(0, 5), SubResource("RectangleShape2D_khrlv")],
+"version": 3
+}
 
 [node name="GoToPianoButton" type="Button"]
 anchors_preset = -1
@@ -17,5 +144,5 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "PIANO"
 script = ExtResource("1_yc3nt")
-sceneToTeleport = ExtResource("2_0y2s4")
+sceneToTeleport = SubResource("PackedScene_ylie6")
 metadata/_edit_use_anchors_ = true

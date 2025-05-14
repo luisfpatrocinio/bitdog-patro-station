@@ -103,7 +103,6 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_b26h7")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Status:"
 horizontal_alignment = 1
@@ -113,7 +112,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_b26h7")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "IP:"
 horizontal_alignment = 1
@@ -176,6 +174,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_u8xjt")
+vertical_alignment = 2
+max_lines_visible = 7
 
 [node name="TextEdit" type="LineEdit" parent="PanelsArea/TextPanel/Container"]
 custom_minimum_size = Vector2(0, 32)
@@ -477,6 +477,43 @@ layout_mode = 2
 [node name="PianoButton15" parent="PanelsArea/PianoPanel/HBoxContainer" instance=ExtResource("12_0elsd")]
 layout_mode = 2
 
+[node name="CreditsArea" type="Panel" parent="PanelsArea"]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 303.0
+offset_right = 811.0
+offset_bottom = 373.0
+theme = ExtResource("2_b26h7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelsArea/CreditsArea"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -28.0
+offset_right = 121.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelsArea/CreditsArea/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Created by PatrocinioLuisF"
+horizontal_alignment = 1
+
+[node name="Button" type="LinkButton" parent="PanelsArea/CreditsArea/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("2_b26h7")
+text = "Github"
+uri = "https://github.com/luisfpatrocinio"
+
 [node name="ResetButton" type="Button" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
@@ -493,40 +530,40 @@ text = "RESET"
 script = ExtResource("7_a8wb5")
 metadata/_edit_use_anchors_ = true
 
-[node name="CreditsLabel" type="Panel" parent="."]
-offset_left = 519.0
-offset_top = 330.0
-offset_right = 835.0
-offset_bottom = 400.0
+[node name="DisconnectedBlock" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_b26h7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsLabel"]
+[node name="ColorRect" type="ColorRect" parent="DisconnectedBlock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.705882)
+
+[node name="Label" type="Label" parent="DisconnectedBlock"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = -28.0
-offset_right = 121.0
-offset_bottom = 28.0
+offset_left = -102.5
+offset_top = -11.5
+offset_right = 102.5
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="CreditsLabel/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "Created by PatrocinioLuisF"
+theme_override_font_sizes/font_size = 48
+text = "Connecting to BitDogLab..."
 horizontal_alignment = 1
-
-[node name="Button" type="LinkButton" parent="CreditsLabel/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme = ExtResource("2_b26h7")
-text = "Github"
-uri = "https://github.com/luisfpatrocinio"
 
 [connection signal="pressed" from="PanelsArea/TextPanel/Container/Button" to="." method="_onSendCommandButtonPressed"]

@@ -13,9 +13,12 @@ class_name MainScreen
 
 @onready var spaceShip: CharacterBody2D = find_child("SpaceShip");
 
+@onready var disconnectedBlock: Control = find_child("DisconnectedBlock");
+
 func _ready() -> void:
 	ConnectionManager.connect("playerConnected", _onPlayerConnected);
 	ConnectionManager.godotinho = get_node("Godotinho");
+	disconnectedBlock.visible = true;
 	
 func _onPlayerConnected(playerId: String):
 	statusLabel.text = "Status: Connected"
@@ -29,15 +32,26 @@ func setStatus(_statusStr: String):
 func _process(delta: float) -> void:
 	$DebugLabel.text = "Dict: \n";
 	$DebugLabel.text += str(ConnectionManager.inputDict);
+	disconnectedBlock.modulate.a = move_toward(disconnectedBlock.modulate.a, 1.0 - float(ConnectionManager.connectionEstablished), 0.169);
 
 func updateStatusLabel():
 	if len(ConnectionManager.peers) <= 0:
 		var _statusLabel = infoPanel.container.get_node("StatusLabel") as Label;
 		_statusLabel.text = "Waiting for BitDog..."
 
-func _onSendCommandButtonPressed() -> void:
-	var _text: String = textPanel.container.get_node("TextEdit").text;
-	print("Comando enviado: " + _text);
+func addTextOnScreen(text: String) -> void:
 	var _label: Label = textPanel.container.get_node("TextScreen/Label");
-	_label.text += _text + "\n";
+	_label.text += text + "\n";
+	
+	var _lines = _label.text.split("\n") as Array;
+	if _lines.size() > 7:
+		_lines.pop_front();
+		_label.text =  str("\n").join(_lines);
+
+func _onSendCommandButtonPressed() -> void:
+	var _textEdit = textPanel.container.get_node("TextEdit");
+	var _text: String = _textEdit.text;
+	addTextOnScreen(_text);
+	_textEdit.text = "";
+	
 	ConnectionManager.send_data(_text);
