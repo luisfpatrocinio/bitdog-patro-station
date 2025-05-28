@@ -1,8 +1,5 @@
 extends Node
 
-# Godotinho TODO: excluir
-var godotinho: Sprite2D;
-
 ## Porta UDP na qual o servidor irá escutar conexões.
 const PORT = 5000;
 
@@ -92,7 +89,6 @@ func _process(delta: float) -> void:
 	server.poll();
 	resetButtons();
 	
-	manageGodotinho();
 
 	# Verifica se há uma nova conexão de cliente
 	if server.is_connection_available():
@@ -116,18 +112,8 @@ func _process(delta: float) -> void:
 		update_peers_and_packets()
 		
 
-func manageGodotinho():
-	if !godotinho: return;
-	
-	godotinho.scale = godotinho.scale.lerp(Vector2(0.80, 0.80), 0.15);
-	if connectionEstablished:
-		godotinho.modulate = Color.GREEN;
-	else: 
-		godotinho.modulate = Color.RED;
-
 func sendBroadcast():
 	if !connectionEstablished:
-		if godotinho: godotinho.scale = Vector2(1.2, 1.2);
 		client.set_broadcast_enabled(true);
 		var _ipString = "192.168.137.255";
 		client.set_dest_address(_ipString, 1234);

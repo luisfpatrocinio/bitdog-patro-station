@@ -39,7 +39,6 @@ Created by Luis Felipe Patrocinio
 
 ## 📄 License
 
-This project is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)**.  
-You are free to use, share, and adapt this project, as long as proper credit is given to the original author, Luis Felipe Patrocinio.
-
-For more details, see the [license description](https://creativecommons.org/licenses/by/4.0/).
+This project is licensed under the MIT License.  
+Feel free to use it in your projects -- just make sure to credit **Luis Felipe Patrocinio** ([GitHub](https://github.com/luisfpatrocinio)).  
+See the [LICENSE](./LICENSE) file for full details.

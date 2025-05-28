@@ -17,7 +17,6 @@ class_name MainScreen
 
 func _ready() -> void:
 	ConnectionManager.connect("playerConnected", _onPlayerConnected);
-	ConnectionManager.godotinho = get_node("Godotinho");
 	disconnectedBlock.visible = true;
 	
 func _onPlayerConnected(playerId: String):
