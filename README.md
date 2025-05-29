@@ -7,7 +7,7 @@ Created with 💙 by Patro (Luis F. Patrocinio).
 
 ## 📸 Preview
 
-![screenshot](screenshot.png)
+![screenshot](PatroStationScreenshot.png)
 
 ## ✨ Features
 
