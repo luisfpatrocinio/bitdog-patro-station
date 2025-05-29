@@ -1,5 +1,7 @@
 # BitDog Patro Station
 
+![patroStation](PatroStation.png)
+
 A sleek and functional control panel made with [Godot 4](https://godotengine.org/) to interface with BitDogLab boards over Wi-Fi.  
 Created with 💙 by Patro (Luis F. Patrocinio).
 
