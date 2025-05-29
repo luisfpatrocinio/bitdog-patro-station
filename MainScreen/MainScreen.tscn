@@ -1,17 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkkc2ooun2c5"]
+[gd_scene load_steps=16 format=3 uid="uid://bkkc2ooun2c5"]
 
-[ext_resource type="Script" uid="uid://bpwlco3llm63m" path="res://MainScreen.gd" id="1_7pmop"]
-[ext_resource type="Theme" uid="uid://dt7k2spik24qg" path="res://Theme/PatroPanelTheme.tres" id="2_b26h7"]
-[ext_resource type="Script" uid="uid://bshshh7fckb6p" path="res://panel.gd" id="3_a8wb5"]
-[ext_resource type="Texture2D" uid="uid://cfc41dq2bqcp6" path="res://icon.svg" id="4_6maps"]
-[ext_resource type="Script" uid="uid://bsjiookk7pntb" path="res://Player.gd" id="5_aycgk"]
-[ext_resource type="PackedScene" uid="uid://brdf6p4bmygxf" path="res://Scenes/led_button.tscn" id="6_b26h7"]
-[ext_resource type="PackedScene" uid="uid://dd3dhafcjhxc3" path="res://Scenes/space_ship.tscn" id="6_lple0"]
-[ext_resource type="Script" uid="uid://djpy1dbqjulfw" path="res://Scripts/reset_button.gd" id="7_a8wb5"]
-[ext_resource type="PackedScene" uid="uid://bp46rpad118d6" path="res://Scenes/led_matrix_button.tscn" id="8_6maps"]
-[ext_resource type="PackedScene" uid="uid://u42difiw2rc8" path="res://Scenes/led_slider.tscn" id="9_aycgk"]
-[ext_resource type="Script" uid="uid://digpbaltebfdd" path="res://Scripts/MatrixBrightnessSlider.gd" id="10_u8xjt"]
-[ext_resource type="PackedScene" uid="uid://c75ka2r24oues" path="res://Scenes/PianoButton.tscn" id="12_0elsd"]
+[ext_resource type="Script" uid="uid://bpwlco3llm63m" path="res://MainScreen/MainScreen.gd" id="1_7pmop"]
+[ext_resource type="Theme" uid="uid://dt7k2spik24qg" path="res://MainScreen/Theme/PatroPanelTheme.tres" id="2_b26h7"]
+[ext_resource type="Script" uid="uid://bshshh7fckb6p" path="res://MainScreen/Scripts/panel.gd" id="3_a8wb5"]
+[ext_resource type="PackedScene" uid="uid://brdf6p4bmygxf" path="res://MainScreen/Scenes/led_button.tscn" id="6_b26h7"]
+[ext_resource type="PackedScene" uid="uid://dd3dhafcjhxc3" path="res://MainScreen/Scenes/space_ship.tscn" id="6_lple0"]
+[ext_resource type="Script" uid="uid://djpy1dbqjulfw" path="res://MainScreen/Scripts/reset_button.gd" id="7_a8wb5"]
+[ext_resource type="PackedScene" uid="uid://bp46rpad118d6" path="res://MainScreen/Scenes/led_matrix_button.tscn" id="8_6maps"]
+[ext_resource type="PackedScene" uid="uid://u42difiw2rc8" path="res://MainScreen/Scenes/led_slider.tscn" id="9_aycgk"]
+[ext_resource type="Script" uid="uid://digpbaltebfdd" path="res://MainScreen/Scripts/MatrixBrightnessSlider.gd" id="10_u8xjt"]
+[ext_resource type="PackedScene" uid="uid://c75ka2r24oues" path="res://MainScreen/Scenes/PianoButton.tscn" id="12_0elsd"]
 
 [sub_resource type="Gradient" id="Gradient_cfvxu"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0.411765, 1, 1)
@@ -57,16 +55,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_iy58a")
-
-[node name="DebugLabel" type="Label" parent="."]
-visible = false
-offset_left = 590.0
-offset_top = 21.0
-offset_right = 910.0
-offset_bottom = 86.0
-theme = ExtResource("2_b26h7")
-text = "DEBUG AXIS: "
-autowrap_mode = 2
 
 [node name="PanelsArea" type="Control" parent="."]
 layout_mode = 3
@@ -130,12 +118,6 @@ grow_vertical = 2
 theme = ExtResource("2_b26h7")
 script = ExtResource("3_a8wb5")
 
-[node name="Icon" type="Sprite2D" parent="PanelsArea/AnalogPanel"]
-visible = false
-position = Vector2(124, 127)
-texture = ExtResource("4_6maps")
-script = ExtResource("5_aycgk")
-
 [node name="SpaceShip" parent="PanelsArea/AnalogPanel" instance=ExtResource("6_lple0")]
 position = Vector2(127, 127)
 
@@ -185,6 +167,7 @@ emoji_menu_enabled = false
 
 [node name="Button" type="Button" parent="PanelsArea/TextPanel/Container"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_b26h7")
 text = "Enviar"
 
@@ -547,6 +530,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.705882)
 
 [node name="Label" type="Label" parent="DisconnectedBlock"]

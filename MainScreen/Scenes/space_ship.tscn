@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dd3dhafcjhxc3"]
 
-[ext_resource type="Texture2D" uid="uid://b2stn1p05m0x8" path="res://Assets/ship_A.png" id="1_65coa"]
-[ext_resource type="Script" uid="uid://c3efxx842m4ry" path="res://Scripts/space_ship.gd" id="1_yepno"]
+[ext_resource type="Texture2D" uid="uid://b2stn1p05m0x8" path="res://MainScreen/Assets/ship_A.png" id="1_65coa"]
+[ext_resource type="Script" uid="uid://c3efxx842m4ry" path="res://MainScreen/Scripts/space_ship.gd" id="1_yepno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yepno"]
 

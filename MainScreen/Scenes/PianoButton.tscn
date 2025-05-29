@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75ka2r24oues"]
+
+[ext_resource type="Theme" uid="uid://dt7k2spik24qg" path="res://MainScreen/Theme/PatroPanelTheme.tres" id="1_keqis"]
+[ext_resource type="Script" uid="uid://cbyik7mppknh0" path="res://MainScreen/Scripts/PianoButton.gd" id="2_g3mmo"]
+
+[node name="PianoButton" type="Button"]
+custom_minimum_size = Vector2(24, 0)
+theme = ExtResource("1_keqis")
+script = ExtResource("2_g3mmo")

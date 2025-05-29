@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	
 # Edit file: res://Scripts/space_ship.gd
 func randomizeColor():
-	print("Randomizando.");
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	

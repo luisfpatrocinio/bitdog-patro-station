@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brdf6p4bmygxf"]
 
-[ext_resource type="Theme" uid="uid://dt7k2spik24qg" path="res://Theme/PatroPanelTheme.tres" id="1_24j4j"]
-[ext_resource type="Script" uid="uid://c68ymqaoptca0" path="res://Scripts/led_button.gd" id="2_xk12v"]
+[ext_resource type="Theme" uid="uid://dt7k2spik24qg" path="res://MainScreen/Theme/PatroPanelTheme.tres" id="1_24j4j"]
+[ext_resource type="Script" uid="uid://c68ymqaoptca0" path="res://MainScreen/Scripts/led_button.gd" id="2_xk12v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pmop"]
 bg_color = Color(0.69, 0, 0, 1)
@@ -9,6 +9,7 @@ bg_color = Color(0.69, 0, 0, 1)
 [node name="LedButton" type="Button"]
 custom_minimum_size = Vector2(72, 48)
 size_flags_horizontal = 6
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_24j4j")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7pmop")
 text = "RED"

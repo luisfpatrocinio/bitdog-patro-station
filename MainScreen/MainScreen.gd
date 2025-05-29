@@ -29,12 +29,16 @@ func setStatus(_statusStr: String):
 	infoPanel.container.get_node("StatusLabel").text = "Status: " + _statusStr;
 
 func _process(delta: float) -> void:
-	$DebugLabel.text = "Dict: \n";
-	$DebugLabel.text += str(ConnectionManager.inputDict);
-	disconnectedBlock.modulate.a = move_toward(disconnectedBlock.modulate.a, 1.0 - float(ConnectionManager.connectionEstablished), 0.169);
+	manageDisconnectedBlock();
+	
+func manageDisconnectedBlock():
+	var _connected = ConnectionManager.connectionEstablished;
+	var _alphaTo = 1.0 - float(_connected);
+	disconnectedBlock.modulate.a = move_toward(disconnectedBlock.modulate.a, _alphaTo, 0.169);
+	disconnectedBlock.mouse_filter = Control.MOUSE_FILTER_IGNORE if _connected else Control.MOUSE_FILTER_STOP
 
 func updateStatusLabel():
-	if len(ConnectionManager.peers) <= 0:
+	if !ConnectionManager.connectionEstablished:
 		var _statusLabel = infoPanel.container.get_node("StatusLabel") as Label;
 		_statusLabel.text = "Waiting for BitDog..."
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bp46rpad118d6"]
 
-[ext_resource type="Script" uid="uid://sbhdhfs1d7s8" path="res://Scripts/led_matrix_button.gd" id="1_a44xb"]
-[ext_resource type="Theme" uid="uid://dt7k2spik24qg" path="res://Theme/PatroPanelTheme.tres" id="1_pjogr"]
+[ext_resource type="Script" uid="uid://sbhdhfs1d7s8" path="res://MainScreen/Scripts/led_matrix_button.gd" id="1_a44xb"]
+[ext_resource type="Theme" uid="uid://dt7k2spik24qg" path="res://MainScreen/Theme/PatroPanelTheme.tres" id="1_pjogr"]
 
 [node name="LedMatrixButton" type="Button"]
 custom_minimum_size = Vector2(40, 40)
@@ -18,5 +18,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_pjogr")
 script = ExtResource("1_a44xb")

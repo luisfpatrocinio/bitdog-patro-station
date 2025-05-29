@@ -6,3 +6,4 @@ func _ready() -> void:
 func reset() -> void:
 	ConnectionManager.send_data("reset");
 	ConnectionManager.clearPeers();
+	ConnectionManager.connectionEstablished = false;

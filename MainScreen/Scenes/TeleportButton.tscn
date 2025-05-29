@@ -1,7 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bbvlppfjk0kjc"]
+[gd_scene load_steps=21 format=3 uid="uid://bn7xto1ioxpxx"]
 
-[ext_resource type="Script" uid="uid://cry0x3ottpw8g" path="res://Scripts/TeleportButton.gd" id="1_yc3nt"]
-[ext_resource type="Script" uid="uid://l3f2nhsgntfe" path="res://Scripts/HuembleRobot.gd" id="2_yc3nt"]
+[ext_resource type="Script" uid="uid://cry0x3ottpw8g" path="res://MainScreen/Scripts/TeleportButton.gd" id="1_yc3nt"]
+
+[sub_resource type="Resource" id="Resource_mucir"]
+metadata/__load_path__ = "res://Scripts/HuembleRobot.gd"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0y2s4"]
 load_path = "res://.godot/imported/char_02_idle_164x164.png-574f6dd858a24160a9e0cc5a341f7340.ctex"
@@ -126,7 +128,7 @@ _bundled = {
 "node_count": 3,
 "node_paths": [NodePath("."), NodePath(".")],
 "nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 4, 5, 1, 6, 2, 7, 3, 8, 4, 0, 1073741825, 0, 10, 9, -1, 2, 11, 5, 12, 6, 0),
-"variants": [ExtResource("2_yc3nt"), 1, SubResource("SpriteFrames_3fayv"), &"idle", 0.925548, Vector2(0, 5), SubResource("RectangleShape2D_khrlv")],
+"variants": [SubResource("Resource_mucir"), 1, SubResource("SpriteFrames_3fayv"), &"idle", 0.925548, Vector2(0, 5), SubResource("RectangleShape2D_khrlv")],
 "version": 3
 }
 
